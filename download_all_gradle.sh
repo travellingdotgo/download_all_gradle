@@ -45,7 +45,7 @@ elif [ ${SYSTEM} = "Solaris" ] ; then
   echo "Solaris"
 
 else
-  echo “SYSTEM: ”${SYSTEM}
+  echo "SYSTEM: "${SYSTEM}
 fi
 
 time bash ./gradlew tasks
