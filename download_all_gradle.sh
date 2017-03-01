@@ -40,7 +40,7 @@ if [ ${SYSTEM} = "Linux" ] ; then
   sed 's/'gradle-2.8-all.zip'/'${zipname}'/g' gradle/wrapper/gradle-wrapper.properties
 elif [ ${SYSTEM} = "Darwin" ] ; then
   echo "Darwin"
-  sed -i 's/'gradle-2.8-all.zip'/'${zipname}'/g' gradle/wrapper/gradle-wrapper.properties
+  sed -i '' 's/'gradle-2.8-all.zip'/'${zipname}'/g' gradle/wrapper/gradle-wrapper.properties
 elif [ ${SYSTEM} = "Solaris" ] ; then
   echo "Solaris"
 
