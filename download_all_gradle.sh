@@ -33,7 +33,21 @@ do
 echo ${data}
 zipname=gradle-${data}-all.zip
 cp backup.properties gradle/wrapper/gradle-wrapper.properties
-gsed -i 's/'gradle-2.8-all.zip'/'${zipname}'/g' gradle/wrapper/gradle-wrapper.properties
+
+SYSTEM=`uname -s`
+if [ ${SYSTEM} = "Linux" ] ; then
+  echo "Linux"
+  sed 's/'gradle-2.8-all.zip'/'${zipname}'/g' gradle/wrapper/gradle-wrapper.properties
+elif [ ${SYSTEM} = "Darwin" ] ; then
+  echo "Darwin"
+  sed -i 's/'gradle-2.8-all.zip'/'${zipname}'/g' gradle/wrapper/gradle-wrapper.properties
+elif [ ${SYSTEM} = "Solaris" ] ; then
+  echo "Solaris"
+
+else
+  echo “SYSTEM: ”${SYSTEM}
+fi
+
 time bash ./gradlew tasks
 
 done
